@@ -1,0 +1,36 @@
+body{
+    font-family: Helvetica;
+    margin: 20;
+}
+.des-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.des-container{
+    width:300px;
+    margin-bottom: 20px;
+}
+.netSvgGraph {
+    margin-top: 70px;
+    margin-left: 200px;
+}
+.caption{
+    /* margin-left: 1200px; */
+    margin-top: 480px;
+}
+.first-container{
+    display: flex;
+    margin-top: 80px;
+}
+.instructions{
+    text-align: right;
+    margin-right: 200px;
+    
+}
+.statement{
+    margin-top: 80px;
+    margin-bottom:80px;
+    
+}
