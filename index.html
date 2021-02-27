@@ -26,8 +26,8 @@
            font-family: Arial, Helvetica, sans-serif;
            font-size: 18px;
            line-height: 1.15;
-           margin-top: 90px;
-           margin-left: 1200px;
+           margin-top: 0px;
+           margin-left: 0px;
            margin-bottom: 14px;
            font-weight: 500;
            height: 110px;
@@ -46,7 +46,7 @@
             margin-top: 0px;
             margin: 0px;
             width: 50%;
-            padding-bottom: 90px; padding-top: 90px; 
+            padding-bottom: 0px; padding-top: 90px; 
         }
       
         #sourceText{
@@ -663,10 +663,22 @@
         <h6>BEYOND BECHDEL</h6>
         <h2>11 <span class="chancery">Other Tests</span> that address gender and race issues in movie industry </h2>
     </div>
+    <p style="position:absolute; padding-top: 20px;right: 20px;">
+        Data: <a href = "https://fivethirtyeight.com/">fivethirtyeight</a><br>Desgin: <a href = "https://www.kikochen.com/">Kiko Chen</a>
+    <br>- <br>
+    Dataset based on the top <br>50 Holywood movies of <br>2016 </p>
+    <div class="chart0">
+
+    </div>
     <div class="source" style= "margin-top: 150px;">
         <div class="source-title">
-            <h6>source: FiveThirtyEight </h6>
-            <p id="sourceText">“We reached out to more than a dozen women in film and television — writers, directors, actresses and producers — to ask what they think the next Bechdel Test should be. The answers we got ran the gamut. Some addressed representation behind the camera. Others zeroed in on the problems faced by women of color. Still others concentrated on characterization and story — how women are represented on screen. In the end, we boiled their responses down into 11 tests from our film-industry sources”</p>
+            
+            <p class="comment">Bechdel test certainly has its limitations, it's only looking at one aspect of the gender issue.
+                What could be the tests that's beyond Bechdel? 
+                Here are 11 other tests created by FiveThirtyEight — Some addressed representation behind the camera. 
+                Others zeroed in on the problems faced by women of color. 
+                Still others concentrated on characterization and story — how women are represented on screen. </p>
+
         </div>
     </div>
     <div class="des-wrapper">
@@ -794,40 +806,45 @@
 
 <!-- Comparison -->
 <div class="block-container">
-    <!-- <div class="text-div">
-        <h6>BECHDEL TEST </h6>
-        <h2>A third of the top 50 movies of 2016 failed the Bechdel Test</h2> -->
+     
     <div class="text-div">
-        <h6>THE 12 TESTS </h6>
-        <h2>How the top 50 movies of 2016 scored in the <span class="chancery">12 new tests</span> , compared to <span class="chancery">their Bechdel results</span>?</h2>
+        <h6>THE 12 TESTS vs Bechdel Test </h6>
+        <h2>How the top 50 movies of 2016 scored in the <span class="chancery">12 new tests</span>, compared to <span class="chancery">their Bechdel results</span>?</h2>
     </div>
+    <p style="position:absolute; padding-top: 20px;right: 20px;">
+        Data: <a href = "https://fivethirtyeight.com/">fivethirtyeight</a><br>Desgin: <a href = "https://www.kikochen.com/">Kiko Chen</a>
+    <br>- <br>
+    Dataset based on the top <br>50 Holywood movies of <br>2016 </p>
 
     <div class="first-container">
         <div class="caption">
-            <p>✺ If a movie pasts one test, we give it one score.</p>
-            <p style="color:#23E128;"> <span style="font-size: 30px;">●</span> pass Bechdel</p>
-            <p style="color:#FEF14B " > <span style="font-size: 30px;">●</span> <span style = "color: #1E1E1E;">fail Bechdel</span> </p>
-            <p> <span style="font-size: 30px;">⌾</span> score of 12 tests</p>
+            
+            <p ><b>Color</b></p>
+            <p style="color:#23E128;"> <span style="font-size: 30px;">●</span> The movie passed Bechdel test</p>
+            <p style="color:#FEF14B; " > <span style="font-size: 30px;">●</span> <span style = "color: #1E1E1E;">The movie failed Bechdel</span> </p>
+            <p style="padding-top: 10px;"><b>Size</b></p>
+            <p> If a movie pass one test, we give it one score.</p>
+            <p> <span style="font-size: 30px;">⌾</span> total score of the tests the movie passed</p>
         </div>
         <div class= "graph-container">
             <div class="instructions">
-                <p>☟ Hover to see the film names. </p>
+                <p style = "color: #999;">☟ Hover to see the film names. </p>
             </div>
             <div class="chart-12movieScore" ></div>
             <script>      
                 //var margin = 100;    
-                var kScale = d3.scaleLinear().domain([5,12]) .range([15,55]) ;    
+                var kScale = d3.scaleLinear().domain([5,12]) .range([10,50]) ;    
                 var svg3 = d3.select(".chart-12movieScore") 
                                 .append("svg")
-                                .attr("width",1200)
+                                .attr("width",1000)
                                 .attr("height",750);                                ;
                 
             
                     var simulation = d3.forceSimulation(movieSum)
                     .force('charge', d3.forceManyBody().strength(50))
-                    .force('center', d3.forceCenter(840, 400))
+                    .force('center', d3.forceCenter(500, 400))
                     .force('collision', d3.forceCollide().radius(function(d) {return kScale(d.sum)}))
-                    .on('tick', ticked);
+                     .on('tick', ticked);
             
                         
                 function ticked() {
@@ -859,7 +876,7 @@
                                     .attr("y", 360)
                                     .attr("font-family", "Apple Chancery") 
                                     .text(d.movie  )
-                                    .attr("font-size", "50px")
+                                    .attr("font-size", "40px")
                                     .attr("text-shadow", "#FEF14B");
                                     
             
@@ -868,9 +885,23 @@
                                     .attr("y", 400)
                                     
                                     .attr("font-family", "Helvetica") 
-                                    .text(d.sum + "  " +"pass")
+                                    .text("passed" + "  " + d.sum + "  " +"tests " +"out of 12")
                                                                     
-                                    .attr("font-size", "30px");
+                                    .attr("font-size", "18 px");
+                                
+                                    // svg3.append("text")
+                                    // .attr("x",160)
+                                    // .attr("y", 400)
+                                    
+                                    // .attr("font-family", "Helvetica") 
+                                    // .text(function(d){ if(d.bechdelTest2016 == 1){
+                                    //     return "passed";
+                                    //     }else{
+                                    //         return "didn't";
+                                    //     }} +"Bechdel test " )
+                                                                    
+                                    // .attr("font-size", "30px");   
+                                    
 
                             })  
                             .on("mouseout",function(){
@@ -893,24 +924,36 @@
             }
                 </script>
         </div>
+     
     </div>
-   
     
-    <div class="source">
+    <div class="source" style= "padding-top: 0px; padding-bottom: 20px; margin: 0px;">
         <div class="source-title">
-            <h6>source: FiveThirtyEight </h6>   
-        </div>
+            <p class="comment"> <span class = "chancery">Movies that passed Bechdel test were not doing great in all the tests. There is no strong correlation between them — we definitely need more varieties of tests for movie industry.</span> </p>
+        </div>        
     </div> 
 
 </div>
+
 <!-- net work of 12 test -->
 <div class="block-container">
     <div class="text-div">
         <h6>LOOKING INTO THE 12 TESTS</h6>
         <h2>What has already been addressed?<br />What is <span class="chancery">missing</span>?</h2>
     </div>
+    <p style="position:absolute; padding-top: 20px;right: 20px;">
+        Data: <a href = "https://fivethirtyeight.com/">fivethirtyeight</a><br>Desgin: <a href = "https://www.kikochen.com/">Kiko Chen</a>
+    <br>- <br>
+    Dataset based on the top <br>50 Holywood movies of <br>2016 </p>
+    <div class="source" style= "margin-top: 150px;">
+        <div class="source-title">
+            <p class="comment" >Diving deeper inside the 12 tests, We grouped the topics that have been addressed into biggers themes, indicated by different colors
+                Then mapped them out in this network. </p>
+             <p class="comment" style="padding-top: 20px;"> <span class = "chancery">Gender issue has the biggest weight among all themes, but there is certainly much more to be addressed.</span> </p>   
+        </div>
+    </div>
     <div class="netWorkgraph">
-     <div class="netSvg"></div>   
+     <div class="netSvg" style="height: 0px;"></div>   
      <div class="netSvgGraph">
         <?xml version="1.0" encoding="utf-8"?>
         <?xml version="1.0" encoding="utf-8"?>
@@ -1387,22 +1430,14 @@
 
         
      </div>
-       
-    
-
-
+      
        <div class="button-missing">
        
         </div>
         
 
     </div>
-    <div class="source">
-        <div class="source-title">
-            <h6>source: FiveThirtyEight </h6>
-            
-        </div>
-    </div>
+
 </div>
 <script>
     d3.select(".netSvg")
@@ -1418,8 +1453,15 @@
 
 
 </script>
-<div class="title-div">
-<h2>One test or metric isn’t going to change an entire industry, neither the twelves. We need more initiatives to change the abuses of power and stereotypes of minorities in movie industries.</h2>
+
+<div class="statement"  style = "background-color: #db5f3a; margin-bottom: 0px;">
+    <div style="width:50%; padding-left:10%; padding-bottom: 90px; padding-top: 90px;background-color: #db5f3a;">
+        <h2 class="comment" style = "font-size: 36px;">One test or metric isn’t going to change an entire industry, 
+            neither the twelves. <br>We need more initiatives to change the abuses
+             of power and stereotypes of minorities in movie industries. </h2>
+             <br> 
+             <span class="chancery" style="font-size: 30px;">Project by <a href="https://www.kikochen.com/">Kiko Chen</a>  & <a href="http://fesimeoni.it/">Fe Simeoni</a></span> 
+    </div>
 </div>
 </body>
 </html>
